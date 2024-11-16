@@ -60,4 +60,50 @@ app.get("/janken", (req, res) => {
   res.render( 'janken', display );
 });
 
+app.get("/yakyu", (req, res) => {
+  let team = req.query.team;
+  let league = '';
+  
+if ( team === "ソフトバンク" || team === "日ハム" || team === "ロッテ" || team === "楽天" || team === "オリックス" || team === "西武"){
+  league = "パリーグ";
+} else if( team == "巨人" || team === "阪神" || team === "DeNA" || team === "広島" || team === "ヤクルト" || team === "中日"){
+  league = "セリーグ";
+} else if (team) {
+  league = "そのようなチームはありません";
+} else {
+  league = "チーム名を入力してください";
+}
+
+res.render( 'yakyu', { team: team, league: league});
+});
+
+app.get("/quiz", (req, res) => {
+  const quizData = {
+    question: "僕の大好きなスポーツは？",
+    options: ["サッカー", "テニス", "野球", "バスケ"],
+    correctAnswer: "野球"
+  };
+
+  res.render('quiz', { quiz: quizData, result: null });
+});
+
+app.get("/quiz/result", (req, res) => {
+  const quizData = {
+    question: "僕の大好きなスポーツは？",
+    options: ["サッカー", "テニス", "野球", "バスケ"],
+    correctAnswer: "野球"
+  };
+
+  const userAnswer = req.query.answer;
+  let result = '';
+
+  if (userAnswer === quizData.correctAnswer) {
+    result = "正解! よくできました👏";
+  } else {
+    result = "ざんねーーん😞不正解";
+  }
+  
+  res.render('quiz', { quiz: quizData, result: result });
+});
+
 app.listen(8080, () => console.log("Example app listening on port 8080!"));

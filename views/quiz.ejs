@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>自分クイズ</title>
+    <style>
+        .correct{
+            color:crimson;
+        }
+        .incorrect{
+            color:rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+    <h1>自分クイズ！</h1>
+    <p><%= quiz.question %></p>
+    
+    <!-- ラジオボタンで選択肢を表示 -->
+    <form action="/quiz/result" method="get">
+        <% quiz.options.forEach(function(option) { %>
+            <label>
+                <input type="radio" name="answer" value="<%= option %>" required>
+                <%= option %>
+            </label><br>
+        <% }) %>
+        
+        <input type="submit" value="解答する">
+    </form>
+
+    <% if (result) { %>
+        <h2 class="<%= result === '正解! よくできました👏' ? 'correct' : 'incorrect' %>"><%= result %></h2>
+    <% } %>
+
+</body>
+</html>

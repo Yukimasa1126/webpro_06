@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>プロ野球リーグ</title>
+</head>
+<body>
+    <h1>チーム名を入力してください</h1>
+
+
+    <form action="/yakyu" method="get">
+        <label for="team">チーム名</label>
+        <input type="text" name="team" id="team" required>
+        <input type="submit" value="送信">
+    </form>
+    <hr>
+    <% if (league) { %>
+        <h2><%= team %> に関連するリーグ:</h2>
+        <p><%= league %> に所属しています。</p>
+    <% } else { %>
+        <p>チーム名を入力してください。</p>
+    <% } %>
+</body>
+</html>
