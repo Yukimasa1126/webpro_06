@@ -1,0 +1,27 @@
+.task {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+}
+
+.task input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.task button {
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.task button:hover {
+    background-color: darkred;
+}
+
+.task.completed {
+    text-decoration: line-through;
+    color: gray;
+}

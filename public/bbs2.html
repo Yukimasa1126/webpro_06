@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タスク管理</title>
+    <script src="./bbs2.js" defer></script>
+    <link rel="stylesheet" href="./bbs2.css">
+</head>
+<body>
+    <h1>タスク管理</h1>
+
+    <!-- タスク追加フォーム -->
+    <div>
+        <label for="task">タスク：</label>
+        <input type="text" id="task" placeholder="新しいタスクを入力">
+        <button type="button" id="addTask">タスク追加</button>
+    </div>
+
+    <!-- タスク一覧ボタン -->
+    <div>
+        <button type="button" id="listTasks">タスク一覧</button>
+    </div>
+
+    <!-- タスク一覧表示 -->
+    <div id="taskList"></div>
+</body>
+</html>
